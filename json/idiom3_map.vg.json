@@ -75,8 +75,8 @@
             "domain": [75, 100],
             "scheme": "tealblues"
           },
-          "legend": {"title": "Enrolment Rate (%)", "gradientLength": 120},
-          "title": "Rate (%)"
+          "legend": {"title": "Enrolment Rate (%)", "gradientLength": 100},
+          "title": "Enrolment Rate (%)"
         },
         "tooltip": [
           {"field": "state_name", "type": "nominal", "title": "State/Territory"},

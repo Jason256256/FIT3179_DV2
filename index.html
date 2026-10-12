@@ -21,9 +21,14 @@
     <style>
       body { background-color: #f7f9fa; font-family: 'Source Sans Pro', sans-serif; padding: 20px; }
       .dashboard-section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-      .charts-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; margin-top: 15px; }
-      .chart-container { flex: 1; min-width: 250px; }
-      .control-group { margin-top: 10px; }
+      
+      /* Row split layout: 2:2:2:1 ratio */
+      .charts-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 15px; }
+      .chart-box { flex: 2; min-width: 220px; }
+      .insights-box { flex: 1; min-width: 200px; background: #fdfdfd; padding: 15px; border-left: 3px solid #4080ff; border-radius: 4px; }
+      
+      .chart-title { font-size: 1.1em; font-weight: 700; margin-bottom: 8px; color: #333; }
+      .control-group { margin-top: 15px; }
     </style>
 </head>
 
@@ -32,19 +37,41 @@
   <section class="dashboard-section" id="section-1">
     <div class="narrative-box">
       <h2>Section 1: Enrolment Rates in Australia</h2>
-      <p>This section explores early childhood education uptake across various community remoteness levels, gender divergence via difference mapping, and city-level geographic point distribution.</p>
-    
-      <!-- Per-Section Year Slider Control -->
-      <div class="control-group" style="margin: 15px 0;">
-        <label for="s1-slider"><strong>Select Year: <span id="s1-year-val">2022</span></strong></label><br>
-        <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022" style="width: 300px;">
-      </div>
+      <p>This section explores early childhood education uptake across various community remoteness levels, gender divergence via difference mapping, and state-level geographic disparities.</p>
     </div>
 
     <div class="charts-row">
-      <div id="vis1" class="chart-container"></div>
-      <div id="vis2" class="chart-container"></div>
-      <div id="vis3" class="chart-container"></div>
+      <!-- Idiom 1 -->
+      <div class="chart-box">
+        <div class="chart-title">1. Enrolment Rates by Community</div>
+        <div id="vis1"></div>
+      </div>
+
+      <!-- Idiom 2 -->
+      <div class="chart-box">
+        <div class="chart-title">2. Enrolment Rates: Male vs Female</div>
+        <div id="vis2"></div>
+      </div>
+
+      <!-- Idiom 3 -->
+      <div class="chart-box">
+        <div class="chart-title">3. Enrolment Rates by State/Territory</div>
+        <div id="vis3"></div>
+      </div>
+
+      <!-- Insights & Universal Slider Column -->
+      <div class="insights-box">
+        <div class="chart-title">Key Insights</div>
+        <p id="insights-placeholder" style="font-size: 0.95em; color: #555; line-height: 1.4;">
+          Early childhood education uptake in Australia shows strong overall growth, but key structural disparities remain. While <strong>Major Cities</strong> and the <strong>ACT</strong> maintain peak enrolment (>90%), participation drops significantly in <strong>Very Remote</strong> areas (<70%) and the Northern Territory. Additionally, female enrolment consistently outpaces male enrolment by ~1.3% nationwide.
+        </p>
+
+        <!-- Universal Year Slider Control Placed Below Insights -->
+        <div class="control-group">
+          <label for="s1-slider"><strong>Select Year: <span id="s1-year-val">2022</span></strong></label><br>
+          <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -57,15 +84,15 @@
       const selectedYear = parseInt(year);
 
       // Embed Idiom 1 and pass signal
-      vegaEmbed('#vis1', 'json/idiom1_bar.vg.json').then((res) => {
+      vegaEmbed('#vis1', 'json/idiom1_bar.vg.json', {"actions": false}).then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);
 
       // Embed Idiom 2 (Time series overview)
-      vegaEmbed('#vis2', 'json/idiom2_dac.vg.json').catch(console.error);
+      vegaEmbed('#vis2', 'json/idiom2_dac.vg.json', {"actions": false}).catch(console.error);
 
       // Embed Idiom 3 and pass signal
-      vegaEmbed('#vis3', 'json/idiom3_map.vg.json').then((res) => {
+      vegaEmbed('#vis3', 'json/idiom3_map.vg.json', {"actions": false}).then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);
     }

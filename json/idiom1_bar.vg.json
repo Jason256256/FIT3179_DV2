@@ -11,26 +11,69 @@
       "value": 2022
     }
   ],
-  "transform": [
-    {"filter": "datum.year == section1_year"}
-  ],
-  "mark": {"type": "bar", "color": "#4080ff"},
-  "encoding": {
-    "x": {
-      "field": "community",
-      "type": "nominal",
-      "axis": {"labelAngle": -25},
-      "title": "Community"
+  "layer": [
+    {
+      "transform": [
+        {"filter": "datum.year == section1_year"}
+      ],
+      "mark": {"type": "bar", "color": "#4080ff"},
+      "encoding": {
+        "x": {
+          "field": "community",
+          "type": "nominal",
+          "axis": {"labelAngle": -25},
+          "title": "Community"
+        },
+        "y": {
+          "field": "enrolment_rate",
+          "type": "quantitative",
+          "scale": {"domain": [0, 100]},
+          "title": "Enrolment Rate (%)"
+        },
+        "tooltip": [
+          {"field": "community", "type": "nominal", "title": "Community"},
+          {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"}
+        ]
+      }
     },
-    "y": {
-      "field": "enrolment_rate",
-      "type": "quantitative",
-      "scale": {"domain": [0, 100]},
-      "title": "Enrolment Rate (%)"
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 28,
+        "y": 98,
+        "x2": 175,
+        "y2": 138,
+        "fill": "#ffffff",
+        "stroke": "#b0c4de",
+        "strokeWidth": 1,
+        "cornerRadius": 4,
+        "opacity": 0.92
+      }
     },
-    "tooltip": [
-      {"field": "community", "type": "nominal", "title": "Community"},
-      {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"}
-    ]
-  }
+    {
+      "data": {
+        "values": [
+          {
+            "annotation": "Enrolment rates are consistently\nhigher in more urban areas\ncompared to more rural areas."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 33,
+        "y": 102,
+        "fontSize": 9,
+        "fontStyle": "italic",
+        "color": "#222222",
+        "lineBreak": "\n",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "text": {"field": "annotation", "type": "nominal"}
+      }
+    }
+  ]
 }
