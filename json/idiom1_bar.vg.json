@@ -8,15 +8,14 @@
   "params": [
     {
       "name": "section1_year",
-      "value": 2022,
-      "bind": {"input": "range", "min": 2016, "max": 2026, "step": 2, "name": "Year: "}
+      "value": 2022
     }
   ],
   "transform": [
     {"filter": "datum.community != 'All'"},
     {"filter": "datum.year == section1_year"}
   ],
-  "mark": "bar",
+  "mark": {"type": "bar", "color": "#4080ff"},
   "encoding": {
     "x": {
       "field": "community",
@@ -29,11 +28,6 @@
       "type": "quantitative",
       "scale": {"domain": [0, 100]},
       "title": "Enrolment Rate (%)"
-    },
-    "color": {
-      "field": "community",
-      "type": "nominal",
-      "legend": null
     },
     "tooltip": [
       {"field": "community", "type": "nominal", "title": "Community"},

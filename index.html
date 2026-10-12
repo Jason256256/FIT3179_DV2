@@ -32,12 +32,12 @@
   <section class="dashboard-section" id="section-1">
     <div class="narrative-box">
       <h2>Section 1: Enrolment Rates in Australia</h2>
-      <p>Exploring early childhood education uptake across remoteness communities, gender divergence via difference mapping, and state-level geographic disparities.</p>
+      <p>This section explores early childhood education uptake across various community remoteness levels, gender divergence via difference mapping, and state-level geographic disparities.</p>
     
       <!-- Per-Section Year Slider Control -->
-      <div class="control-group">
-        <label for="s1-slider">Select Year: <span id="s1-year-val">2022</span></label>
-        <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022">
+      <div class="control-group" style="margin: 15px 0;">
+        <label for="s1-slider"><strong>Select Year: <span id="s1-year-val">2022</span></strong></label><br>
+        <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022" style="width: 300px;">
       </div>
     </div>
 
@@ -56,15 +56,15 @@
       yearVal.textContent = year;
       const selectedYear = parseInt(year);
 
-      // Embed Idiom 1 with year signal
+      // Embed Idiom 1 and pass signal
       vegaEmbed('#vis1', 'json/idiom1_bar.vg.json').then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);
 
-      // Embed Idiom 2 (DAC does not use slider, shows full time series)
+      // Embed Idiom 2 (Time series overview)
       vegaEmbed('#vis2', 'json/idiom2_dac.vg.json').catch(console.error);
 
-      // Embed Idiom 3 with year signal
+      // Embed Idiom 3 and pass signal
       vegaEmbed('#vis3', 'json/idiom3_map.vg.json').then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);

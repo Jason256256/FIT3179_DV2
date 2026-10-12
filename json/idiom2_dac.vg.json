@@ -6,41 +6,37 @@
     "url": "data/section1_enrolment.csv"
   },
   "transform": [
-    {"filter": "datum.community == 'All'"},
-    {"pivot": "gender", "value": "enrolment_rate", "groupby": ["year"]}
+    {"filter": "datum.community == 'All'"}
   ],
   "layer": [
     {
+      "transform": [
+        {"pivot": "gender", "value": "enrolment_rate", "groupby": ["year"]}
+      ],
       "mark": "area",
       "encoding": {
         "x": {"field": "year", "type": "quantitative", "axis": {"format": "d"}, "title": "Year"},
         "y": {"field": "Female", "type": "quantitative", "scale": {"domain": [50, 100]}, "title": "Enrolment Rate (%)"},
         "y2": {"field": "Male"},
-        "color": {"value": "#a1d99b"},
-        "opacity": {"value": 0.5}
+        "color": {"value": "#e0b0ff"},
+        "opacity": {"value": 0.4}
       }
     },
     {
       "mark": {"type": "line", "point": true},
       "encoding": {
         "x": {"field": "year", "type": "quantitative"},
-        "y": {"field": "Female", "type": "quantitative"},
-        "color": {"value": "#31a354"},
+        "y": {"field": "enrolment_rate", "type": "quantitative", "scale": {"domain": [50, 100]}},
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {"domain": ["Female", "Male"], "range": ["#ff00bf", "#00bfff"]},
+          "legend": {"title": "Gender"}
+        },
         "tooltip": [
           {"field": "year", "type": "quantitative", "title": "Year"},
-          {"field": "Female", "type": "quantitative", "title": "Female Rate (%)"}
-        ]
-      }
-    },
-    {
-      "mark": {"type": "line", "point": true},
-      "encoding": {
-        "x": {"field": "year", "type": "quantitative"},
-        "y": {"field": "Male", "type": "quantitative"},
-        "color": {"value": "#2b8cbe"},
-        "tooltip": [
-          {"field": "year", "type": "quantitative", "title": "Year"},
-          {"field": "Male", "type": "quantitative", "title": "Male Rate (%)"}
+          {"field": "gender", "type": "nominal", "title": "Gender"},
+          {"field": "enrolment_rate", "type": "quantitative", "title": "Rate (%)"}
         ]
       }
     }

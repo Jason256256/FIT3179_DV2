@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "projection": {
+    "type": "mercator",
+    "center": [133, -27],
+    "scale": 2200
+  },
+  "params": [
+    {
+      "name": "section1_year",
+      "value": 2022
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/aus_states.topojson",
+        "format": {"type": "topojson", "feature": "states"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e5e5e5",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": {"value": "Data not available"}
+      }
+    },
+    {
+      "data": {
+        "url": "data/section1_enrolment.csv"
+      },
+      "transform": [
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/aus_states.topojson",
+              "format": {"type": "topojson", "feature": "states"}
+            },
+            "key": "properties.STATE_NAME"
+          },
+          "as": "geo"
+        },
+        {"filter": "datum.year == section1_year"}
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "enrolment_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [50, 100],
+            "scheme": "blues"
+          },
+          "title": "Rate (%)"
+        },
+        "tooltip": [
+          {"field": "state_name", "type": "nominal", "title": "State/Territory"},
+          {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"},
+          {"field": "year", "type": "quantitative", "title": "Year"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
