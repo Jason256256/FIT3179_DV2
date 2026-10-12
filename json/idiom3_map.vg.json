@@ -5,67 +5,82 @@
   "projection": {
     "type": "mercator",
     "center": [133, -27],
-    "scale": 2200
+    "scale": { "expr": "zoom_level" }
   },
   "params": [
     {
       "name": "section1_year",
       "value": 2022
+    },
+    {
+      "name": "zoom_level",
+      "value": 220,
+      "bind": {
+        "input": "range",
+        "min": 150,
+        "max": 600,
+        "step": 10,
+        "name": "Zoom: "
+      }
     }
   ],
   "layer": [
     {
       "data": {
-        "url": "https://cdn.jsdelivr.net/gh/FIT3179/vega-lite@main/3_choropleth_map/js/aus_states.topojson",
-        "format": {"type": "topojson", "feature": "states"}
+        "url": "https://cdn.jsdelivr.net/gh/rowanhogan/australian-states@master/states.geojson",
+        "format": {"type": "json", "property": "features"}
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#e5e5e5",
-        "stroke": "white",
+        "fill": "#f0f0f0",
+        "stroke": "#ffffff",
         "strokeWidth": 1
-      },
-      "encoding": {
-        "tooltip": {"value": "Data not available"}
       }
     },
     {
       "data": {
-        "url": "data/section1_enrolment.csv"
+        "url": "data/section1_idiom3.csv"
       },
       "transform": [
+        {"filter": "datum.year == section1_year"},
+        {
+          "aggregate": [
+            {"op": "mean", "field": "enrolment_rate", "as": "avg_enrolment_rate"}
+          ],
+          "groupby": ["state_name", "year"]
+        },
         {
           "lookup": "state_name",
           "from": {
             "data": {
-              "url": "https://cdn.jsdelivr.net/gh/FIT3179/vega-lite@main/3_choropleth_map/js/aus_states.topojson",
-              "format": {"type": "topojson", "feature": "states"}
+              "url": "https://cdn.jsdelivr.net/gh/rowanhogan/australian-states@master/states.geojson",
+              "format": {"type": "json", "property": "features"}
             },
             "key": "properties.STATE_NAME"
           },
           "as": "geo"
-        },
-        {"filter": "datum.year == section1_year"}
+        }
       ],
       "mark": {
         "type": "geoshape",
-        "stroke": "white",
+        "stroke": "#ffffff",
         "strokeWidth": 0.5
       },
       "encoding": {
         "shape": {"field": "geo", "type": "geojson"},
         "color": {
-          "field": "enrolment_rate",
+          "field": "avg_enrolment_rate",
           "type": "quantitative",
           "scale": {
-            "domain": [50, 100],
-            "scheme": "blues"
+            "domain": [75, 100],
+            "scheme": "tealblues"
           },
+          "legend": {"title": "Enrolment Rate (%)", "gradientLength": 120},
           "title": "Rate (%)"
         },
         "tooltip": [
           {"field": "state_name", "type": "nominal", "title": "State/Territory"},
-          {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"},
+          {"field": "avg_enrolment_rate", "type": "quantitative", "title": "Avg Enrolment Rate (%)", "format": ".1f"},
           {"field": "year", "type": "quantitative", "title": "Year"}
         ]
       }

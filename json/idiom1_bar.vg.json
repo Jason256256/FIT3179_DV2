@@ -3,7 +3,7 @@
   "width": 240,
   "height": 220,
   "data": {
-    "url": "data/section1_enrolment.csv"
+    "url": "data/section1_idiom1.csv"
   },
   "params": [
     {
@@ -12,7 +12,6 @@
     }
   ],
   "transform": [
-    {"filter": "datum.community != 'All'"},
     {"filter": "datum.year == section1_year"}
   ],
   "mark": {"type": "bar", "color": "#4080ff"},

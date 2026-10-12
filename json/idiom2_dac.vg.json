@@ -3,11 +3,8 @@
   "width": 240,
   "height": 220,
   "data": {
-    "url": "data/section1_enrolment.csv"
+    "url": "data/section1_idiom2.csv"
   },
-  "transform": [
-    {"filter": "datum.community == 'All'"}
-  ],
   "layer": [
     {
       "transform": [

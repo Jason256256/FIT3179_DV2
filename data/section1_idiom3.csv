@@ -1,0 +1,49 @@
+state_name,latitude,longitude,year,enrolment_rate
+New South Wales,-31.8402,145.6124,2016,91.2
+Victoria,-36.5986,144.6780,2016,92.5
+Queensland,-22.5754,144.0848,2016,90.1
+Western Australia,-25.0422,117.7932,2016,88.4
+South Australia,-30.0002,135.7206,2016,89.5
+Tasmania,-41.6458,146.5937,2016,85.8
+Northern Territory,-19.4914,132.5510,2016,77.9
+Australian Capital Territory,-35.2809,149.1300,2016,93.5
+New South Wales,-31.8402,145.6124,2018,92.4
+Victoria,-36.5986,144.6780,2018,93.2
+Queensland,-22.5754,144.0848,2018,91.3
+Western Australia,-25.0422,117.7932,2018,89.8
+South Australia,-30.0002,135.7206,2018,90.7
+Tasmania,-41.6458,146.5937,2018,87.1
+Northern Territory,-19.4914,132.5510,2018,79.2
+Australian Capital Territory,-35.2809,149.1300,2018,94.8
+New South Wales,-31.8402,145.6124,2020,88.9
+Victoria,-36.5986,144.6780,2020,88.1
+Queensland,-22.5754,144.0848,2020,87.5
+Western Australia,-25.0422,117.7932,2020,85.9
+South Australia,-30.0002,135.7206,2020,86.8
+Tasmania,-41.6458,146.5937,2020,83.4
+Northern Territory,-19.4914,132.5510,2020,75.1
+Australian Capital Territory,-35.2809,149.1300,2020,90.8
+New South Wales,-31.8402,145.6124,2022,92.8
+Victoria,-36.5986,144.6780,2022,93.8
+Queensland,-22.5754,144.0848,2022,92.0
+Western Australia,-25.0422,117.7932,2022,90.5
+South Australia,-30.0002,135.7206,2022,91.5
+Tasmania,-41.6458,146.5937,2022,88.2
+Northern Territory,-19.4914,132.5510,2022,80.8
+Australian Capital Territory,-35.2809,149.1300,2022,95.5
+New South Wales,-31.8402,145.6124,2024,94.2
+Victoria,-36.5986,144.6780,2024,95.0
+Queensland,-22.5754,144.0848,2024,93.4
+Western Australia,-25.0422,117.7932,2024,91.9
+South Australia,-30.0002,135.7206,2024,92.8
+Tasmania,-41.6458,146.5937,2024,89.6
+Northern Territory,-19.4914,132.5510,2024,82.4
+Australian Capital Territory,-35.2809,149.1300,2024,96.8
+New South Wales,-31.8402,145.6124,2026,95.0
+Victoria,-36.5986,144.6780,2026,95.8
+Queensland,-22.5754,144.0848,2026,94.2
+Western Australia,-25.0422,117.7932,2026,92.8
+South Australia,-30.0002,135.7206,2026,93.6
+Tasmania,-41.6458,146.5937,2026,90.5
+Northern Territory,-19.4914,132.5510,2026,83.5
+Australian Capital Territory,-35.2809,149.1300,2026,97.5
