@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Jason256256/FIT3179_DV2/main/data/aus_states.topojson",
+    "format": {"type": "topojson", "feature": "states"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STATE_CODE",
+      "from": {
+        "data": {"url": "data/section1_enrolment.csv"},
+        "key": "state_code",
+        "fields": ["enrolment_rate", "state_name", "year"]
+      }
+    },
+    {"filter": "datum.year == section1_year"}
+  ],
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+  "encoding": {
+    "color": {
+      "field": "enrolment_rate",
+      "type": "quantitative",
+      "scale": {"scheme": "blues", "domain": [50, 100]},
+      "title": "Rate (%)"
+    },
+    "tooltip": [
+      {"field": "state_name", "type": "nominal", "title": "State/Territory"},
+      {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"}
+    ]
+  }
+}

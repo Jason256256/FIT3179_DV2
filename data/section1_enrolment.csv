@@ -1,0 +1,38 @@
+year,community,gender,enrolment_rate,state_code,state_name
+2016,Major Cities,All,98.5,1,New South Wales
+2016,Inner Regional,All,82.0,2,Victoria
+2016,Outer Regional,All,76.5,3,Queensland
+2016,Remote,All,67.0,4,South Australia
+2016,Very Remote,All,60.2,5,Western Australia
+2016,All,Male,84.5,6,Tasmania
+2016,All,Female,87.0,7,Northern Territory
+2018,Major Cities,All,99.0,8,Australian Capital Territory
+2018,Inner Regional,All,83.5,null,null
+2018,Outer Regional,All,78.0,null,null
+2018,Remote,All,68.5,null,null
+2018,Very Remote,All,61.0,null,null
+2018,All,Male,85.2,null,null
+2018,All,Female,88.1,null,null
+2021,Major Cities,All,97.5,1,New South Wales
+2021,Inner Regional,All,81.2,2,Victoria
+2021,Outer Regional,All,75.8,3,Queensland
+2021,Remote,All,65.5,4,South Australia
+2021,Very Remote,All,59.0,5,Western Australia
+2021,All,Male,83.0,6,Tasmania
+2021,All,Female,86.5,7,Northern Territory
+2021,All,Male,83.0,8,Australian Capital Territory
+2023,Major Cities,All,98.0,null,null
+2023,Inner Regional,All,82.5,null,null
+2023,Outer Regional,All,77.1,null,null
+2023,Remote,All,66.8,null,null
+2023,Very Remote,All,60.5,null,null
+2023,All,Male,84.1,null,null
+2023,All,Female,87.4,null,null
+2026,Major Cities,All,99.5,1,New South Wales
+2026,Inner Regional,All,84.0,2,Victoria
+2026,Outer Regional,All,79.2,3,Queensland
+2026,Remote,All,69.0,4,South Australia
+2026,Very Remote,All,62.5,5,Western Australia
+2026,All,Male,86.0,6,Tasmania
+2026,All,Female,89.2,7,Northern Territory
+2026,All,Male,86.0,8,Australian Capital Territory

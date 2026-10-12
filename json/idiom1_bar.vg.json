@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section1_enrolment.csv"
+  },
+  "transform": [
+    {"filter": "datum.community != 'All'"},
+    {"filter": "datum.year == section1_year"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "community",
+      "type": "nominal",
+      "axis": {"labelAngle": -25},
+      "title": "Community"
+    },
+    "y": {
+      "field": "enrolment_rate",
+      "type": "quantitative",
+      "scale": {"domain": [0, 100]},
+      "title": "Enrolment Rate (%)"
+    },
+    "color": {
+      "field": "community",
+      "type": "nominal",
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "community", "type": "nominal", "title": "Community"},
+      {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)"}
+    ]
+  }
+}

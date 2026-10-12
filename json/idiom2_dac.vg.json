@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section1_enrolment.csv"
+  },
+  "transform": [
+    {"filter": "datum.community == 'All'"},
+    {"pivot": "gender", "value": "enrolment_rate", "groupby": ["year"]}
+  ],
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative", "axis": {"format": "d"}, "title": "Year"},
+        "y": {"field": "Female", "type": "quantitative", "scale": {"domain": [50, 100]}, "title": "Enrolment Rate (%)"},
+        "y2": {"field": "Male"},
+        "color": {"value": "#a1d99b"},
+        "opacity": {"value": 0.5}
+      }
+    },
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative"},
+        "y": {"field": "Female", "type": "quantitative"},
+        "color": {"value": "#31a354"},
+        "tooltip": [
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "Female", "type": "quantitative", "title": "Female Rate (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "year", "type": "quantitative"},
+        "y": {"field": "Male", "type": "quantitative"},
+        "color": {"value": "#2b8cbe"},
+        "tooltip": [
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "Male", "type": "quantitative", "title": "Male Rate (%)"}
+        ]
+      }
+    }
+  ]
+}
