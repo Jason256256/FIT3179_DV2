@@ -5,6 +5,13 @@
   "data": {
     "url": "data/section1_enrolment.csv"
   },
+  "params": [
+    {
+      "name": "section1_year",
+      "value": 2022,
+      "bind": {"input": "range", "min": 2016, "max": 2026, "step": 2, "name": "Year: "}
+    }
+  ],
   "transform": [
     {"filter": "datum.community != 'All'"},
     {"filter": "datum.year == section1_year"}

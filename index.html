@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <title>Early Childhood Education</title>
-    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <title>Early Childhood Education - Australia vs Malaysia</title>
+    <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
@@ -17,8 +17,14 @@
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
-
-
+    
+    <style>
+      body { background-color: #f7f9fa; font-family: 'Source Sans Pro', sans-serif; padding: 20px; }
+      .dashboard-section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .charts-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-around; margin-top: 15px; }
+      .chart-container { flex: 1; min-width: 250px; }
+      .control-group { margin-top: 10px; }
+    </style>
 </head>
 
 <body>
@@ -30,8 +36,8 @@
     
       <!-- Per-Section Year Slider Control -->
       <div class="control-group">
-        <label for="s1-slider">Select Year: <span id="s1-year-val">2021</span></label>
-        <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2021">
+        <label for="s1-slider">Select Year: <span id="s1-year-val">2022</span></label>
+        <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022">
       </div>
     </div>
 
@@ -43,24 +49,29 @@
   </section>
 
   <script>
-    // Embedding Vega-Lite specs with reactive signals for the year slider
     const slider = document.getElementById('s1-slider');
     const yearVal = document.getElementById('s1-year-val');
 
     function renderSection1(year) {
       yearVal.textContent = year;
-      const vizParams = {
-        usermeta: {},
-        eval: { section1_year: parseInt(year) }
-      };
-    
-      vegaEmbed('#vis1', 'js/idiom1_bar.vg.json', {mod: vizParams});
-      vegaEmbed('#vis2', 'js/idiom2_dac.vg.json');
-      vegaEmbed('#vis3', 'js/idiom3_map.vg.json', {mod: vizParams});
+      const selectedYear = parseInt(year);
+
+      // Embed Idiom 1 with year signal
+      vegaEmbed('#vis1', 'json/idiom1_bar.vg.json').then((res) => {
+        res.view.signal('section1_year', selectedYear).run();
+      }).catch(console.error);
+
+      // Embed Idiom 2 (DAC does not use slider, shows full time series)
+      vegaEmbed('#vis2', 'json/idiom2_dac.vg.json').catch(console.error);
+
+      // Embed Idiom 3 with year signal
+      vegaEmbed('#vis3', 'json/idiom3_map.vg.json').then((res) => {
+        res.view.signal('section1_year', selectedYear).run();
+      }).catch(console.error);
     }
 
     slider.addEventListener('input', (e) => renderSection1(e.target.value));
-    renderSection1(2021); // Initial load
+    renderSection1(2022); // Initial load
   </script>
 </body>
 

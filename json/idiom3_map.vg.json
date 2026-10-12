@@ -6,6 +6,13 @@
     "url": "https://raw.githubusercontent.com/Jason256256/FIT3179_DV2/main/data/aus_states.topojson",
     "format": {"type": "topojson", "feature": "states"}
   },
+  "params": [
+    {
+      "name": "section1_year",
+      "value": 2022,
+      "bind": {"input": "range", "min": 2016, "max": 2026, "step": 2, "name": "Year: "}
+    }
+  ],
   "transform": [
     {
       "lookup": "properties.STATE_CODE",
