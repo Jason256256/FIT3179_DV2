@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 420,
+  "height": 220,
+  "data": {
+    "url": "data/section3_idiom8.csv"
+  },
+  "transform": [
+    {"calculate": "datum.facility_type + ' ' + datum.share_percent + '%'", "as": "left_label"},
+    {"calculate": "datum.share_percent + '% ' + datum.facility_type", "as": "right_label"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {"padding": 2.2},
+          "axis": {
+            "labelAngle": 0,
+            "title": "Year",
+            "domain": false,
+            "ticks": false
+          }
+        },
+        "y": {
+          "field": "share_percent",
+          "type": "quantitative",
+          "scale": {"domain": [0, 75]},
+          "axis": null
+        },
+        "detail": {"field": "facility_type"},
+        "color": {"value": "#4080ff"}
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 60,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {"padding": 2.2}
+        },
+        "y": {
+          "field": "share_percent",
+          "type": "quantitative"
+        },
+        "color": {"value": "#0040ff"},
+        "tooltip": [
+          {"field": "facility_type", "type": "nominal", "title": "Facility Type"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "share_percent", "type": "quantitative", "title": "Share (%)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.year == 2016"}],
+      "mark": {
+        "type": "text",
+        "fontSize": 8.5,
+        "align": "right",
+        "dx": -6,
+        "dy": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {"padding": 2.2}
+        },
+        "y": {"field": "share_percent", "type": "quantitative"},
+        "text": {"field": "left_label", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.year == 2026"}],
+      "mark": {
+        "type": "text",
+        "fontSize": 8.5,
+        "align": "left",
+        "dx": 6,
+        "dy": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {"padding": 2.2}
+        },
+        "y": {"field": "share_percent", "type": "quantitative"},
+        "text": {"field": "right_label", "type": "nominal"}
+      }
+    }
+  ]
+}

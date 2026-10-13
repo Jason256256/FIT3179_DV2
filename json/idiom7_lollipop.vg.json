@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section3_idiom7.csv"
+  },
+  "params": [
+    {
+      "name": "section3_year",
+      "value": 2022
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year == section3_year"},
+    {"calculate": "0.5", "as": "baseline"}
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#b0c4de",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "community",
+          "type": "nominal",
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
+          "axis": {"labelAngle": -25},
+          "title": "Community"
+        },
+        "y": {
+          "field": "attendance_enrolment_ratio",
+          "type": "quantitative",
+          "scale": {"domain": [0.5, 1.0]},
+          "title": "Attendance-to-Enrolment Ratio"
+        },
+        "y2": {
+          "field": "baseline",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "x": {
+          "field": "community",
+          "type": "nominal",
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
+        },
+        "y": {
+          "field": "attendance_enrolment_ratio",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "child_population",
+          "type": "quantitative",
+          "scale": {
+            "domain": [4900, 210000],
+            "scheme": ["#FFBF00", "#BF0000"]
+          },
+          "legend": {
+            "title": "Child Population",
+            "gradientLength": 200,
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {"field": "community", "type": "nominal", "title": "Community"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "attendance_enrolment_ratio", "type": "quantitative", "title": "Ratio", "format": ".3f"},
+          {"field": "child_population", "type": "quantitative", "title": "Child Population"}
+        ]
+      }
+    },
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 88,
+        "y": 0,
+        "x2": 230,
+        "y2": 52,
+        "fill": "#ffffff",
+        "stroke": "#b0c4de",
+        "strokeWidth": 1,
+        "cornerRadius": 4,
+        "opacity": 0.92
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "annotation": "Attendance-to-enrolment\nefficiency is consistently higher\nin major urban centers compared\nto remote communities"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 93,
+        "y": 4,
+        "fontSize": 9,
+        "fontStyle": "italic",
+        "color": "#222222",
+        "lineBreak": "\n",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "text": {"field": "annotation", "type": "nominal"}
+      }
+    }
+  ]
+}

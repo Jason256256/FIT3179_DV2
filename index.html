@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Early Childhood Education in Australia</title>
+    <title>Early Childhood Education in Australia (2016-2026)</title>
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -29,11 +29,16 @@
       
       .dashboard-section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
       
-      /* Row split layout: 2:2:2:1 ratio */
+      /* Row split layout: 2:2:2:1 ratio for Sections 1, 2 and 4 */
       .charts-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 15px; }
       .chart-box { flex: 2; min-width: 220px; }
       .insights-box { flex: 1; min-width: 200px; background: #fdfdfd; padding: 15px; border-left: 3px solid #4080ff; border-radius: 4px; }
       
+      /* Row split layout: 3:3:1 ratio for Section 3 */
+      .charts-row-s3 { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 15px; }
+      .chart-box-s3 { flex: 3; min-width: 260px; }
+      .insights-box-s3 { flex: 1; min-width: 200px; background: #fdfdfd; padding: 15px; border-left: 3px solid #4080ff; border-radius: 4px; }
+
       .chart-title { font-size: 1.1em; font-weight: 700; margin-bottom: 8px; color: #333; }
       .control-group { margin-top: 15px; }
     </style>
@@ -43,7 +48,7 @@
 
   <!-- TITLE SECTION -->
   <section class="title-section">
-    <h1>Early Childhood Education in Australia</h1>
+    <h1>Early Childhood Education in Australia (2016-2026)</h1>
     <p>FIT3179 Data Visualisation 2 Project by Jason Lee Khai Xing (ID: 34900403)</p>
   </section>
 
@@ -117,6 +122,38 @@
     </div>
   </section>
 
+  <!-- SECTION 3 -->
+  <section class="dashboard-section" id="section-3">
+    <div class="narrative-box">
+      <h2>Section 3: Enrolment vs Attendance in Australia</h2>
+      <p>This section investigates attendance-to-enrolment ratios across regional communities and shifts in family child-care preferences across facility types.</p>
+    </div>
+
+    <div class="charts-row-s3">
+      <div class="chart-box-s3">
+        <div class="chart-title">7. Attendance-to-Enrolment Ratio by Community</div>
+        <div id="vis7"></div>
+        <div class="control-group" style="margin-top: 15px;">
+          <label for="s3-slider"><strong>Select Year: <span id="s3-year-val">2022</span></strong></label><br>
+          <input type="range" id="s3-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
+        </div>
+      </div>
+      <div class="chart-box-s3">
+        <div class="chart-title">8. Share of Children by Facility Type (2016 vs 2026)</div>
+        <div id="vis8"></div>
+      </div>
+      <div class="insights-box-s3">
+        <div class="chart-title">Key Insights</div>
+        <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
+          <li><strong>Efficiency Gradient:</strong> Cities peak at 96% efficiency, dropping to a 68% peak in Very Remote areas.</li>
+          <li><strong>Facility Dominance:</strong> Long Day Care (LDC) leads, growing from 52% to 58.5%.</li>
+          <li><strong>Preschool Trend:</strong> Standalone Kindergartens/Preschools show a moderate relative share decline.</li>
+          <li><strong>Lowest Shares:</strong> In-Home Care remains lowest at 3%, followed by Family Day Care at ~8%.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <script>
     // Section 1 Controller
     const slider1 = document.getElementById('s1-slider');
@@ -144,9 +181,8 @@
       yearVal2.textContent = year;
       const selectedYear = parseInt(year);
       
-      vegaEmbed('#vis4', 'json/idiom4_line.vg.json', {"actions": false}).then((res) => {
-        res.view.signal('section2_year', selectedYear).run();
-      }).catch(console.error);
+      // vis4 does not take a year signal, so just embed it without .then()
+      vegaEmbed('#vis4', 'json/idiom4_line.vg.json', {"actions": false}).catch(console.error);
 
       vegaEmbed('#vis5', 'json/idiom5_dumbbell.vg.json', {"actions": false}).then((res) => {
         res.view.signal('section2_year', selectedYear).run();
@@ -158,6 +194,23 @@
     }
     slider2.addEventListener('input', (e) => renderSection2(e.target.value));
     renderSection2(2022);
+
+    // Section 3 Controller
+    const slider3 = document.getElementById('s3-slider');
+    const yearVal3 = document.getElementById('s3-year-val');
+
+    function renderSection3(year) {
+      yearVal3.textContent = year;
+      const selectedYear = parseInt(year);
+
+      vegaEmbed('#vis7', 'json/idiom7_lollipop.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section3_year', selectedYear).run();
+      }).catch(console.error);
+
+      vegaEmbed('#vis8', 'json/idiom8_slope.vg.json', {"actions": false}).catch(console.error);
+    }
+    slider3.addEventListener('input', (e) => renderSection3(e.target.value));
+    renderSection3(2022);
   </script>
 </body>
 
