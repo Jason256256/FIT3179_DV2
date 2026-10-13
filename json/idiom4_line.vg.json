@@ -5,54 +5,97 @@
   "data": {
     "url": "data/section2_idiom4.csv"
   },
-  "mark": {
-    "type": "line",
-    "point": true
-  },
-  "encoding": {
-    "x": {
-      "field": "year",
-      "type": "quantitative",
-      "axis": {"format": "d"},
-      "title": "Year"
-    },
-    "y": {
-      "field": "avg_attendance_hours",
-      "type": "quantitative",
-      "scale": {"domain": [3.0, 7.0]},
-      "title": "Avg Attendance per weekday (Hours)"
-    },
-    "color": {
-      "field": "community",
-      "type": "nominal",
-      "title": "Community",
-      "scale": {
-        "domain": [
-          "Major Cities",
-          "Inner Regional",
-          "Outer Regional",
-          "Remote",
-          "Very Remote"
-        ],
-        "range": [
-          "#8000c0",
-          "#ffe000",
-          "#ff8000",
-          "#00c040",
-          "#ff0000"
-        ]
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true
       },
-      "legend": {
-        "orient": "bottom",
-        "direction": "horizontal",
-        "columns": 2,
-        "title": "Community"
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "axis": {"format": "d"},
+          "title": "Year"
+        },
+        "y": {
+          "field": "avg_attendance_hours",
+          "type": "quantitative",
+          "scale": {"domain": [3.0, 7.0]},
+          "title": "Avg Attendance per weekday (Hours)"
+        },
+        "color": {
+          "field": "community",
+          "type": "nominal",
+          "title": "Community",
+          "scale": {
+            "domain": [
+              "Major Cities",
+              "Inner Regional",
+              "Outer Regional",
+              "Remote",
+              "Very Remote"
+            ],
+            "range": [
+              "#8000c0",
+              "#ffe000",
+              "#ff8000",
+              "#00c040",
+              "#ff0000"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "columns": 2,
+            "title": "Community"
+          }
+        },
+        "tooltip": [
+          {"field": "community", "type": "nominal", "title": "Community"},
+          {"field": "year", "type": "quantitative", "title": "Year"},
+          {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Hours", "format": ".2f"}
+        ]
       }
     },
-    "tooltip": [
-      {"field": "community", "type": "nominal", "title": "Community"},
-      {"field": "year", "type": "quantitative", "title": "Year"},
-      {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Hours", "format": ".2f"}
-    ]
-  }
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 8,
+        "y": 0,
+        "x2": 165,
+        "y2": 40,
+        "fill": "#ffffff",
+        "stroke": "#b0c4de",
+        "strokeWidth": 1,
+        "cornerRadius": 4,
+        "opacity": 0.92
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "annotation": "Attendance time is consistently\nhigher in more urban areas\ncompared to more rural areas."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 13,
+        "y": 4,
+        "fontSize": 9,
+        "fontStyle": "italic",
+        "color": "#222222",
+        "lineBreak": "\n",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "text": {"field": "annotation", "type": "nominal"}
+      }
+    }
+  ]
 }

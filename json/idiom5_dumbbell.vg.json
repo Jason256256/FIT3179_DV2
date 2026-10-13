@@ -14,14 +14,6 @@
   "transform": [
     {"filter": "datum.year == section2_year"}
   ],
-  "encoding": {
-    "y": {
-      "field": "community",
-      "type": "nominal",
-      "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
-      "title": "Community"
-    }
-  },
   "layer": [
     {
       "transform": [
@@ -37,6 +29,12 @@
         "strokeWidth": 2
       },
       "encoding": {
+        "y": {
+          "field": "community",
+          "type": "nominal",
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
+          "title": "Community"
+        },
         "x": {
           "field": "Female",
           "type": "quantitative",
@@ -53,6 +51,11 @@
         "opacity": 1
       },
       "encoding": {
+        "y": {
+          "field": "community",
+          "type": "nominal",
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"]
+        },
         "x": {
           "field": "avg_attendance_hours",
           "type": "quantitative"
@@ -75,6 +78,45 @@
           {"field": "gender", "type": "nominal", "title": "Gender"},
           {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Hours", "format": ".2f"}
         ]
+      }
+    },
+    {
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 60,
+        "y": 172,
+        "x2": 228,
+        "y2": 212,
+        "fill": "#ffffff",
+        "stroke": "#b0c4de",
+        "strokeWidth": 1,
+        "cornerRadius": 4,
+        "opacity": 0.92
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "annotation": "Attendance time is also consistently,\nalbeit slightly higher in females\nthan males."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 65,
+        "y": 176,
+        "fontSize": 9,
+        "fontStyle": "italic",
+        "color": "#222222",
+        "lineBreak": "\n",
+        "lineHeight": 12
+      },
+      "encoding": {
+        "text": {"field": "annotation", "type": "nominal"}
       }
     }
   ]

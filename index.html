@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Early Childhood Education - Australia vs Malaysia</title>
+    <title>Early Childhood Education in Australia</title>
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -20,6 +20,13 @@
     
     <style>
       body { background-color: #f7f9fa; font-family: 'Source Sans Pro', sans-serif; padding: 20px; }
+      .page { max-width: 1200px; margin: 0 auto; }
+      
+      /* Title Section Styling (Centered) */
+      .title-section { text-align: center; background: white; padding: 25px 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+      .title-section h1 { font-weight: 900; font-size: 2.2em; color: #2c3e50; margin: 0 0 8px 0; }
+      .title-section p { font-size: 1.1em; color: #7f8c8d; margin: 0; }
+      
       .dashboard-section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
       
       /* Row split layout: 2:2:2:1 ratio */
@@ -33,6 +40,12 @@
 </head>
 
 <body>
+
+  <!-- TITLE SECTION -->
+  <section class="title-section">
+    <h1>Early Childhood Education in Australia</h1>
+    <p>FIT3179 Data Visualisation 2 Project by Jason Lee Khai Xing (ID: 34900403)</p>
+  </section>
 
   <!-- SECTION 1 -->
   <section class="dashboard-section" id="section-1">
@@ -81,7 +94,7 @@
         <div class="chart-title">Key Insights</div>
         <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
           <li><strong>Remoteness Gap:</strong> Children in Major Cities attend ~6.4 hours/weekday compared to ~4.1 hours in Very Remote areas.</li>
-          <li><strong>Gender Trend:</strong> Females consistently have longer attendence times, albeit slightly than males and higher remoteness also correlates to shroter attendance time</li>
+          <li><strong>Gender Trend:</strong> Females consistently have longer attendence times, albeit slightly than males and higher remoteness also correlates to shorter attendance time</li>
           <li><strong>Regional Leaders:</strong> ACT consistently records the highest average weekday participation durations nationwide, followed by Victoria.</li>
         </ul>
         <div class="control-group">
