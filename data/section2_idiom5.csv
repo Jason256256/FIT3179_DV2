@@ -1,11 +1,61 @@
 community,gender,year,avg_attendance_hours
-Major Cities,Female,2026,6.48
-Major Cities,Male,2026,6.38
-Inner Regional,Female,2026,5.88
-Inner Regional,Male,2026,5.78
-Outer Regional,Female,2026,5.48
-Outer Regional,Male,2026,5.38
-Remote,Female,2026,4.88
-Remote,Male,2026,4.78
-Very Remote,Female,2026,4.18
-Very Remote,Male,2026,4.08
+Major Cities,Female,2016,5.95
+Major Cities,Male,2016,5.80
+Major Cities,Female,2018,6.07
+Major Cities,Male,2018,5.92
+Major Cities,Female,2020,6.19
+Major Cities,Male,2020,6.04
+Major Cities,Female,2022,6.31
+Major Cities,Male,2022,6.16
+Major Cities,Female,2024,6.43
+Major Cities,Male,2024,6.28
+Major Cities,Female,2026,6.55
+Major Cities,Male,2026,6.40
+Inner Regional,Female,2016,5.35
+Inner Regional,Male,2016,5.20
+Inner Regional,Female,2018,5.47
+Inner Regional,Male,2018,5.32
+Inner Regional,Female,2020,5.59
+Inner Regional,Male,2020,5.44
+Inner Regional,Female,2022,5.71
+Inner Regional,Male,2022,5.56
+Inner Regional,Female,2024,5.83
+Inner Regional,Male,2024,5.68
+Inner Regional,Female,2026,5.95
+Inner Regional,Male,2026,5.80
+Outer Regional,Female,2016,4.95
+Outer Regional,Male,2016,4.80
+Outer Regional,Female,2018,5.07
+Outer Regional,Male,2018,4.92
+Outer Regional,Female,2020,5.19
+Outer Regional,Male,2020,5.04
+Outer Regional,Female,2022,5.31
+Outer Regional,Male,2022,5.16
+Outer Regional,Female,2024,5.43
+Outer Regional,Male,2024,5.28
+Outer Regional,Female,2026,5.55
+Outer Regional,Male,2026,5.40
+Remote,Female,2016,4.35
+Remote,Male,2016,4.20
+Remote,Female,2018,4.47
+Remote,Male,2018,4.32
+Remote,Female,2020,4.59
+Remote,Male,2020,4.44
+Remote,Female,2022,4.71
+Remote,Male,2022,4.56
+Remote,Female,2024,4.83
+Remote,Male,2024,4.68
+Remote,Female,2026,4.95
+Remote,Male,2026,4.80
+Very Remote,Female,2016,3.65
+Very Remote,Male,2016,3.50
+Very Remote,Female,2018,3.77
+Very Remote,Male,2018,3.62
+Very Remote,Female,2020,3.89
+Very Remote,Male,2020,3.74
+Very Remote,Female,2022,4.01
+Very Remote,Male,2022,3.86
+Very Remote,Female,2024,4.13
+Very Remote,Male,2024,3.98
+Very Remote,Female,2026,4.25
+Very Remote,Male,2026,4.10
