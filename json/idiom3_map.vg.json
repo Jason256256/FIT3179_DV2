@@ -73,11 +73,11 @@
           "type": "quantitative",
           "scale": {
             "domain": [75, 100],
-            "scheme": "tealblues"
+            "scheme": ["#00FFFF", "#000040"]
           },
           "legend": {
             "title": "Enrolment Rate (%)", 
-            "gradientLength": 150,
+            "gradientLength": 200,
             "orient": "bottom",
             "direction": "horizontal"
           },

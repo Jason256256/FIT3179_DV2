@@ -62,7 +62,10 @@
         "color": {
           "field": "avg_attendance_hours",
           "type": "quantitative",
-          "scale": {"domain": [4.0, 7.0], "scheme": "greens"},
+          "scale": {
+            "domain": [4.0, 7.0], 
+            "scheme": ["#80FF00", "#004000"]
+          },
           "legend": {
             "title": "Avg Time (Hours)",
             "gradientLength": 180,
