@@ -1,0 +1,11 @@
+community,gender,year,avg_attendance_hours
+Major Cities,Female,2026,6.48
+Major Cities,Male,2026,6.38
+Inner Regional,Female,2026,5.88
+Inner Regional,Male,2026,5.78
+Outer Regional,Female,2026,5.48
+Outer Regional,Male,2026,5.38
+Remote,Female,2026,4.88
+Remote,Male,2026,4.78
+Very Remote,Female,2026,4.18
+Very Remote,Male,2026,4.08

@@ -1,0 +1,49 @@
+state_name,latitude,longitude,year,avg_attendance_hours
+New South Wales,-31.8402,145.6124,2016,5.48
+New South Wales,-31.8402,145.6124,2018,5.67
+New South Wales,-31.8402,145.6124,2020,5.70
+New South Wales,-31.8402,145.6124,2022,5.91
+New South Wales,-31.8402,145.6124,2024,6.04
+New South Wales,-31.8402,145.6124,2026,6.15
+Victoria,-36.5986,144.6780,2016,5.72
+Victoria,-36.5986,144.6780,2018,5.89
+Victoria,-36.5986,144.6780,2020,5.95
+Victoria,-36.5986,144.6780,2022,6.12
+Victoria,-36.5986,144.6780,2024,6.25
+Victoria,-36.5986,144.6780,2026,6.36
+Queensland,-22.5754,144.0848,2016,5.08
+Queensland,-22.5754,144.0848,2018,5.27
+Queensland,-22.5754,144.0848,2020,5.30
+Queensland,-22.5754,144.0848,2022,5.51
+Queensland,-22.5754,144.0848,2024,5.64
+Queensland,-22.5754,144.0848,2026,5.75
+Western Australia,-25.0422,117.7932,2016,4.88
+Western Australia,-25.0422,117.7932,2018,5.07
+Western Australia,-25.0422,117.7932,2020,5.10
+Western Australia,-25.0422,117.7932,2022,5.31
+Western Australia,-25.0422,117.7932,2024,5.44
+Western Australia,-25.0422,117.7932,2026,5.55
+South Australia,-30.0002,135.7206,2016,5.18
+South Australia,-30.0002,135.7206,2018,5.37
+South Australia,-30.0002,135.7206,2020,5.40
+South Australia,-30.0002,135.7206,2022,5.61
+South Australia,-30.0002,135.7206,2024,5.74
+South Australia,-30.0002,135.7206,2026,5.85
+Tasmania,-41.6458,146.5937,2016,4.78
+Tasmania,-41.6458,146.5937,2018,4.97
+Tasmania,-41.6458,146.5937,2020,5.00
+Tasmania,-41.6458,146.5937,2022,5.21
+Tasmania,-41.6458,146.5937,2024,5.34
+Tasmania,-41.6458,146.5937,2026,5.45
+Northern Territory,-19.4914,132.5510,2016,4.12
+Northern Territory,-19.4914,132.5510,2018,4.27
+Northern Territory,-19.4914,132.5510,2020,4.30
+Northern Territory,-19.4914,132.5510,2022,4.51
+Northern Territory,-19.4914,132.5510,2024,4.64
+Northern Territory,-19.4914,132.5510,2026,4.75
+Australian Capital Territory,-35.2809,149.1300,2016,5.98
+Australian Capital Territory,-35.2809,149.1300,2018,6.17
+Australian Capital Territory,-35.2809,149.1300,2020,6.20
+Australian Capital Territory,-35.2809,149.1300,2022,6.41
+Australian Capital Territory,-35.2809,149.1300,2024,6.54
+Australian Capital Territory,-35.2809,149.1300,2026,6.65

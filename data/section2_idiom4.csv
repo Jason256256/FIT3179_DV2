@@ -1,0 +1,31 @@
+community,year,avg_attendance_hours
+Major Cities,2016,5.82
+Major Cities,2018,5.91
+Major Cities,2020,6.07
+Major Cities,2022,6.18
+Major Cities,2024,6.31
+Major Cities,2026,6.42
+Inner Regional,2016,5.22
+Inner Regional,2018,5.31
+Inner Regional,2020,5.47
+Inner Regional,2022,5.58
+Inner Regional,2024,5.71
+Inner Regional,2026,5.82
+Outer Regional,2016,4.82
+Outer Regional,2018,4.91
+Outer Regional,2020,5.07
+Outer Regional,2022,5.18
+Outer Regional,2024,5.31
+Outer Regional,2026,5.42
+Remote,2016,4.22
+Remote,2018,4.31
+Remote,2020,4.47
+Remote,2022,4.58
+Remote,2024,4.71
+Remote,2026,4.82
+Very Remote,2016,3.52
+Very Remote,2018,3.61
+Very Remote,2020,3.77
+Very Remote,2022,3.88
+Very Remote,2024,4.01
+Very Remote,2026,4.12
