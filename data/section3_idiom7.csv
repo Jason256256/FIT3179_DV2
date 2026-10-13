@@ -1,0 +1,31 @@
+community,year,attendance_enrolment_ratio,child_population
+Major Cities,2016,0.879,180447
+Inner Regional,2016,0.835,75242
+Outer Regional,2016,0.758,39953
+Remote,2016,0.698,12094
+Very Remote,2016,0.605,4988
+Major Cities,2018,0.895,185900
+Inner Regional,2018,0.849,77600
+Outer Regional,2018,0.772,41250
+Remote,2018,0.711,12480
+Very Remote,2018,0.620,5150
+Major Cities,2020,0.912,191250
+Inner Regional,2020,0.864,79900
+Outer Regional,2020,0.785,42400
+Remote,2020,0.725,12850
+Very Remote,2020,0.635,5300
+Major Cities,2022,0.928,196800
+Inner Regional,2022,0.878,82200
+Outer Regional,2022,0.798,43600
+Remote,2022,0.738,13220
+Very Remote,2022,0.650,5450
+Major Cities,2024,0.945,202100
+Inner Regional,2024,0.892,84500
+Outer Regional,2024,0.812,44850
+Remote,2024,0.752,13590
+Very Remote,2024,0.665,5600
+Major Cities,2026,0.962,207650
+Inner Regional,2026,0.906,86850
+Outer Regional,2026,0.825,46100
+Remote,2026,0.765,13960
+Very Remote,2026,0.680,5750
