@@ -34,6 +34,7 @@
 
 <body>
 
+  <!-- SECTION 1 -->
   <section class="dashboard-section" id="section-1">
     <div class="narrative-box">
       <h2>Section 1: Enrolment Rates in Australia</h2>
@@ -41,32 +42,25 @@
     </div>
 
     <div class="charts-row">
-      <!-- Idiom 1 -->
       <div class="chart-box">
         <div class="chart-title">1. Enrolment Rates by Community</div>
         <div id="vis1"></div>
       </div>
-
-      <!-- Idiom 2 -->
       <div class="chart-box">
         <div class="chart-title">2. Enrolment Rates: Male vs Female</div>
         <div id="vis2"></div>
       </div>
-
-      <!-- Idiom 3 -->
       <div class="chart-box">
         <div class="chart-title">3. Enrolment Rates by State/Territory</div>
         <div id="vis3"></div>
       </div>
-
-      <!-- Insights & Universal Slider Column -->
       <div class="insights-box">
         <div class="chart-title">Key Insights</div>
-        <p id="insights-placeholder" style="font-size: 0.95em; color: #555; line-height: 1.4;">
-          Early childhood education uptake in Australia shows strong overall growth, but key structural disparities remain. While <strong>Major Cities</strong> and the <strong>ACT</strong> maintain peak enrolment (>90%), participation drops significantly in <strong>Very Remote</strong> areas (<70%) and the Northern Territory. Additionally, female enrolment consistently outpaces male enrolment by ~1.3% nationwide.
-        </p>
-
-        <!-- Universal Year Slider Control Placed Below Insights -->
+        <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
+          <li><strong>Remoteness Gap:</strong> Participation drops sharply from ~90-95% in Major Cities down to ~58-68% in Very Remote regions.</li>
+          <li><strong>Gender Trend:</strong> Female enrolment consistently leads male participation by ~1.3% nationwide across 2016-2026.</li>
+          <li><strong>State Disparity:</strong> The ACT and southeastern states lead national rates (>90%), while the Northern Territory lags at ~80%.</li>
+        </ul>
         <div class="control-group">
           <label for="s1-slider"><strong>Select Year: <span id="s1-year-val">2022</span></strong></label><br>
           <input type="range" id="s1-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
@@ -75,30 +69,82 @@
     </div>
   </section>
 
+  <!-- SECTION 2 -->
+  <section class="dashboard-section" id="section-2">
+    <div class="narrative-box">
+      <h2>Section 2: Attendance Hours in Australia</h2>
+      <p>This section examines average weekly hours spent in early childhood education across community remoteness levels, genders, and regional jurisdictions.</p>
+    </div>
+
+    <div class="charts-row">
+      <div class="insights-box">
+        <div class="chart-title">Key Insights</div>
+        <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
+          <li><strong>Remoteness Gap:</strong> Children in Major Cities attend ~6.4 hours/weekday compared to ~4.1 hours in Very Remote areas.</li>
+          <li><strong>Gender Trend:</strong> Females consistently have longer attendence times, albeit slightly than males and higher remoteness also correlates to shroter attendance time</li>
+          <li><strong>Regional Leaders:</strong> ACT consistently records the highest average weekday participation durations nationwide, followed by Victoria.</li>
+        </ul>
+        <div class="control-group">
+          <label for="s2-slider"><strong>Select Year: <span id="s2-year-val">2022</span></strong></label><br>
+          <input type="range" id="s2-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
+        </div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">4. Average Attendance Time by Community</div>
+        <div id="vis4"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">5. Average Attendance Time by Gender and Community</div>
+        <div id="vis5"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">6. Average Attendance Time by State/Territory</div>
+        <div id="vis6"></div>
+      </div>
+    </div>
+  </section>
+
   <script>
-    const slider = document.getElementById('s1-slider');
-    const yearVal = document.getElementById('s1-year-val');
+    // Section 1 Controller
+    const slider1 = document.getElementById('s1-slider');
+    const yearVal1 = document.getElementById('s1-year-val');
 
     function renderSection1(year) {
-      yearVal.textContent = year;
+      yearVal1.textContent = year;
       const selectedYear = parseInt(year);
-
-      // Embed Idiom 1 and pass signal
       vegaEmbed('#vis1', 'json/idiom1_bar.vg.json', {"actions": false}).then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);
-
-      // Embed Idiom 2 (Time series overview)
       vegaEmbed('#vis2', 'json/idiom2_dac.vg.json', {"actions": false}).catch(console.error);
-
-      // Embed Idiom 3 and pass signal
       vegaEmbed('#vis3', 'json/idiom3_map.vg.json', {"actions": false}).then((res) => {
         res.view.signal('section1_year', selectedYear).run();
       }).catch(console.error);
     }
+    slider1.addEventListener('input', (e) => renderSection1(e.target.value));
+    renderSection1(2022);
 
-    slider.addEventListener('input', (e) => renderSection1(e.target.value));
-    renderSection1(2022); // Initial load
+    // Section 2 Controller
+    const slider2 = document.getElementById('s2-slider');
+    const yearVal2 = document.getElementById('s2-year-val');
+
+    function renderSection2(year) {
+      yearVal2.textContent = year;
+      const selectedYear = parseInt(year);
+      
+      vegaEmbed('#vis4', 'json/idiom4_line.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section2_year', selectedYear).run();
+      }).catch(console.error);
+
+      vegaEmbed('#vis5', 'json/idiom5_dumbbell.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section2_year', selectedYear).run();
+      }).catch(console.error);
+
+      vegaEmbed('#vis6', 'json/idiom6_map.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section2_year', selectedYear).run();
+      }).catch(console.error);
+    }
+    slider2.addEventListener('input', (e) => renderSection2(e.target.value));
+    renderSection2(2022);
   </script>
 </body>
 

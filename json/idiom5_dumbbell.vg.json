@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section2_idiom5.csv"
+  },
+  "params": [
+    {
+      "name": "section2_year",
+      "value": 2022
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year == section2_year"}
+  ],
+  "encoding": {
+    "y": {
+      "field": "community",
+      "type": "nominal",
+      "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
+      "title": "Community"
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "pivot": "gender",
+          "value": "avg_attendance_hours",
+          "groupby": ["community", "year"]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#cccccc",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "Female",
+          "type": "quantitative",
+          "scale": {"domain": [3.5, 7.0]},
+          "title": "Avg Attendance per weekday (Hours)"
+        },
+        "x2": {"field": "Male"}
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "avg_attendance_hours",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Female", "Male"],
+            "range": ["#ff00bf", "#00bfff"]
+          },
+          "legend": {
+            "title": "Gender",
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {"field": "community", "type": "nominal", "title": "Community"},
+          {"field": "gender", "type": "nominal", "title": "Gender"},
+          {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Hours", "format": ".2f"}
+        ]
+      }
+    }
+  ]
+}

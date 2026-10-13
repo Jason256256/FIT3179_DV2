@@ -75,7 +75,12 @@
             "domain": [75, 100],
             "scheme": "tealblues"
           },
-          "legend": {"title": "Enrolment Rate (%)", "gradientLength": 100},
+          "legend": {
+            "title": "Enrolment Rate (%)", 
+            "gradientLength": 150,
+            "orient": "bottom",
+            "direction": "horizontal"
+          },
           "title": "Enrolment Rate (%)"
         },
         "tooltip": [

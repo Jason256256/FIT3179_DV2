@@ -28,7 +28,11 @@
           "field": "gender",
           "type": "nominal",
           "scale": {"domain": ["Female", "Male"], "range": ["#ff00bf", "#00bfff"]},
-          "legend": {"title": "Gender"}
+          "legend": {
+            "title": "Gender",
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
         },
         "tooltip": [
           {"field": "year", "type": "quantitative", "title": "Year"},

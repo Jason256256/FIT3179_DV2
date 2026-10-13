@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "projection": {
+    "type": "mercator",
+    "center": [133, -27],
+    "scale": { "expr": "zoom_level" }
+  },
+  "params": [
+    {
+      "name": "section2_year",
+      "value": 2022
+    },
+    {
+      "name": "zoom_level",
+      "value": 220,
+      "bind": {
+        "input": "range",
+        "min": 150,
+        "max": 600,
+        "step": 10,
+        "name": "Zoom: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/gh/rowanhogan/australian-states@master/states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f4f4f4",
+        "stroke": "#cccccc",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/section2_idiom6.csv"
+      },
+      "transform": [
+        {"filter": "datum.year == section2_year"}
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.85,
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "avg_attendance_hours",
+          "type": "quantitative",
+          "scale": {"domain": [4.0, 7.0], "range": [50, 400]},
+          "title": "Avg Time (Hours)"
+        },
+        "color": {
+          "field": "avg_attendance_hours",
+          "type": "quantitative",
+          "scale": {"domain": [4.0, 7.0], "scheme": "greens"},
+          "legend": {
+            "title": "Avg Time (Hours)",
+            "gradientLength": 180,
+            "orient": "bottom",
+            "direction": "horizontal"
+          },
+          "title": "Avg Time (Hours)"
+        },
+        "tooltip": [
+          {"field": "state_name", "type": "nominal", "title": "State/Territory"},
+          {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Attendance (Hours)", "format": ".2f"},
+          {"field": "year", "type": "quantitative", "title": "Year"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}

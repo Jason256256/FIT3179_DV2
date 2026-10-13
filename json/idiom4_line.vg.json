@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section2_idiom4.csv"
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "axis": {"format": "d"},
+      "title": "Year"
+    },
+    "y": {
+      "field": "avg_attendance_hours",
+      "type": "quantitative",
+      "scale": {"domain": [3.0, 7.0]},
+      "title": "Avg Attendance per weekday (Hours)"
+    },
+    "color": {
+      "field": "community",
+      "type": "nominal",
+      "title": "Community",
+      "scale": {
+        "domain": [
+          "Major Cities",
+          "Inner Regional",
+          "Outer Regional",
+          "Remote",
+          "Very Remote"
+        ],
+        "range": [
+          "#8000c0",
+          "#ffe000",
+          "#ff8000",
+          "#00c040",
+          "#ff0000"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "columns": 2,
+        "title": "Community"
+      }
+    },
+    "tooltip": [
+      {"field": "community", "type": "nominal", "title": "Community"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
+      {"field": "avg_attendance_hours", "type": "quantitative", "title": "Avg Hours", "format": ".2f"}
+    ]
+  }
+}

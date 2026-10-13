@@ -21,6 +21,7 @@
         "x": {
           "field": "community",
           "type": "nominal",
+          "sort": ["Major Cities", "Inner Regional", "Outer Regional", "Remote", "Very Remote"],
           "axis": {"labelAngle": -25},
           "title": "Community"
         },
