@@ -72,8 +72,8 @@
           "field": "avg_enrolment_rate",
           "type": "quantitative",
           "scale": {
-            "domain": [75, 100],
-            "scheme": ["#00FFFF", "#000040"]
+            "domain": [70, 100],
+            "scheme": ["#00FFFF", "#00BFFF", "#000040"]
           },
           "legend": {
             "title": "Enrolment Rate (%)", 
@@ -88,6 +88,25 @@
           {"field": "avg_enrolment_rate", "type": "quantitative", "title": "Avg Enrolment Rate (%)", "format": ".1f"},
           {"field": "year", "type": "quantitative", "title": "Year"}
         ]
+      }
+    },
+    {
+      "data": {
+        "values": [{"state_name": "Australian Capital Territory", "longitude": 149.13, "latitude": -35.28}]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 9,
+        "fontWeight": "bold",
+        "align": "left",
+        "dx": 12,
+        "dy": 2,
+        "color": "#333"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"value": "ACT"}
       }
     }
   ],
