@@ -67,7 +67,7 @@
         "size": {
           "field": "avg_attendance_hours",
           "type": "quantitative",
-          "scale": {"domain": [4.0, 7.0], "range": [50, 400]},
+          "scale": {"domain": [4.0, 7.0], "range": [25, 200]},
           "title": "Avg Time (Hours)"
         },
         "color": {
