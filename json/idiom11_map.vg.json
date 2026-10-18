@@ -5,18 +5,29 @@
   "projection": {
     "type": "mercator",
     "center": [109.5, 4.2],
-    "scale": 1500
+    "scale": {"expr": "map_scale"}
   },
   "params": [
     {
       "name": "section4_year",
       "value": 2022
+    },
+    {
+      "name": "map_scale",
+      "value": 800,
+      "bind": {
+        "input": "range",
+        "min": 500,
+        "max": 2000,
+        "step": 50,
+        "name": "Zoom / Scale: "
+      }
     }
   ],
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/CivilServiceMalaysia/malaysia-geojson/main/malaysia.geojson",
+        "url": "https://raw.githubusercontent.com/mptwaktusolat/jakim.geojson/master/malaysia.state.geojson",
         "format": {"type": "json", "property": "features"}
       },
       "mark": {
@@ -33,10 +44,14 @@
       "transform": [
         {"filter": "datum.year == section4_year"},
         {
-          "lookup": "state_name",
+          "calculate": "datum.state_name == 'W.P. Kuala Lumpur' ? 'WP K Lumpur' : datum.state_name == 'W.P. Putrajaya' ? 'WP Putrajaya' : datum.state_name == 'W.P. Labuan' ? 'WP Labuan' : datum.state_name",
+          "as": "clean_state_name"
+        },
+        {
+          "lookup": "clean_state_name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/CivilServiceMalaysia/malaysia-geojson/main/malaysia.geojson",
+              "url": "https://raw.githubusercontent.com/mptwaktusolat/jakim.geojson/master/malaysia.state.geojson",
               "format": {"type": "json", "property": "features"}
             },
             "key": "properties.name"
@@ -56,11 +71,11 @@
           "type": "quantitative",
           "scale": {
             "domain": [75, 100],
-            "scheme": ["#bf80ff", "#400080"]
+            "scheme": "purples"
           },
           "legend": {
             "title": "Enrolment Rate (%)",
-            "gradientLength": 160,
+            "gradientLength": 140,
             "orient": "bottom",
             "direction": "horizontal"
           }
@@ -84,8 +99,8 @@
         "type": "text",
         "fontSize": 8,
         "fontWeight": "bold",
-        "align": "left",
-        "dx": 6,
+        "align": "right",
+        "dx": -8,
         "dy": 2,
         "color": "#333"
       },
