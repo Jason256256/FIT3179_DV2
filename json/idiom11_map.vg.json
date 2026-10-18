@@ -4,8 +4,8 @@
   "height": 220,
   "projection": {
     "type": "mercator",
-    "center": [109.5, 4.2],
-    "scale": {"expr": "map_scale"}
+    "center": {"signal": "[lon_offset, lat_offset]"},
+    "scale": { "expr": "zoom_level" }
   },
   "params": [
     {
@@ -13,14 +13,36 @@
       "value": 2022
     },
     {
-      "name": "map_scale",
+      "name": "zoom_level",
       "value": 800,
       "bind": {
         "input": "range",
         "min": 500,
-        "max": 2000,
+        "max": 8000,
         "step": 50,
-        "name": "Zoom / Scale: "
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "lon_offset",
+      "value": 109.5,
+      "bind": {
+        "input": "range",
+        "min": 95,
+        "max": 120,
+        "step": 0.5,
+        "name": "X-Offset (Lon): "
+      }
+    },
+    {
+      "name": "lat_offset",
+      "value": 4.2,
+      "bind": {
+        "input": "range",
+        "min": -2,
+        "max": 10,
+        "step": 0.5,
+        "name": "Y-Offset (Lat): "
       }
     }
   ],
@@ -97,7 +119,7 @@
       },
       "mark": {
         "type": "text",
-        "fontSize": 8,
+        "fontSize": 10,
         "fontWeight": "bold",
         "align": "right",
         "dx": -8,

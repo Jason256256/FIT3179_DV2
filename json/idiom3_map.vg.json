@@ -4,7 +4,7 @@
   "height": 220,
   "projection": {
     "type": "mercator",
-    "center": [133, -27],
+    "center": {"signal": "[lon_offset, lat_offset]"},
     "scale": { "expr": "zoom_level" }
   },
   "params": [
@@ -17,10 +17,32 @@
       "value": 220,
       "bind": {
         "input": "range",
-        "min": 150,
-        "max": 600,
+        "min": 100,
+        "max": 2000,
         "step": 10,
         "name": "Zoom: "
+      }
+    },
+    {
+      "name": "lon_offset",
+      "value": 133,
+      "bind": {
+        "input": "range",
+        "min": 110,
+        "max": 155,
+        "step": 1,
+        "name": "X-Offset (Lon): "
+      }
+    },
+    {
+      "name": "lat_offset",
+      "value": -27,
+      "bind": {
+        "input": "range",
+        "min": -45,
+        "max": -10,
+        "step": 1,
+        "name": "Y-Offset (Lat): "
       }
     }
   ],
@@ -80,8 +102,7 @@
             "gradientLength": 200,
             "orient": "bottom",
             "direction": "horizontal"
-          },
-          "title": "Enrolment Rate (%)"
+          }
         },
         "tooltip": [
           {"field": "state_name", "type": "nominal", "title": "State/Territory"},
@@ -96,7 +117,7 @@
       },
       "mark": {
         "type": "text",
-        "fontSize": 9,
+        "fontSize": 10,
         "fontWeight": "bold",
         "align": "left",
         "dx": 12,
