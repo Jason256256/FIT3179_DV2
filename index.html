@@ -176,11 +176,11 @@
         </div>
       </div>
       <div class="chart-box">
-        <div class="chart-title">9. Enrolment rates by Urban vs Rural</div>
+        <div class="chart-title">9. Enrolment Rates by Urban vs Rural</div>
         <div id="vis9"></div>
       </div>
       <div class="chart-box">
-        <div class="chart-title">10. Enrolment portions by Gender</div>
+        <div class="chart-title">10. Enrolment Portions by Gender</div>
         <div class="chart-subtitle">1 cell = 1% of total enrolment within one country</div>
         <div id="vis10"></div>
       </div>
@@ -191,6 +191,53 @@
     </div>
   </section>
 
+  <!-- METADATA SECTION -->
+  <section class="dashboard-section" id="section-final">
+    <div class="narrative-box">
+      <h2>Metadata</h2>
+    </div>
+    <div style="font-size: 0.95em; color: #444; line-height: 1.6;">
+      <h3>Data Sources & Files</h3>
+      <ul>
+        <li>
+          <strong>Section 1 (Enrolment Rates in Australia):</strong>
+          <ul>
+            <li><strong>Idiom 1 (Enrolment Rates by Community)</strong>: <a href="https://www.abs.gov.au/statistics/people/education/preschool-education-australia" target="_blank">Australian Bureau of Statistics (ABS) - Preschool Education, Australia</a>.</li>
+            <li><strong>Idiom 2 (Enrolment Rates: Male vs Female)</strong>: <a href="https://www.aihw.gov.au/reports-data/health-welfare-services/children-youth" target="_blank">Australian Institute of Health and Welfare (AIHW) - Early Childhood Education Records</a>.</li>
+            <li><strong>Idiom 3 (Enrolment Rates by State/Territory)</strong>: <a href="https://www.abs.gov.au/statistics/people/education/preschool-education-australia" target="_blank">Australian Bureau of Statistics (ABS) - State & Territory Enrolment Metrics</a>.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Section 2 (Attendance Hours in Australia):</strong>
+          <ul>
+            <li><strong>Idiom 4 (Average Attendance Time by Community)</strong>: <a href="https://www.abs.gov.au/statistics/people/education/preschool-education-australia" target="_blank">Australian Bureau of Statistics (ABS)</a> & <a href="https://www.pc.gov.au/ongoing/report-on-government-services" target="_blank">Productivity Commission (RoGS)</a>.</li>
+            <li><strong>Idiom 5 (Average Attendance Time by Gender and Community)</strong>: <a href="https://www.aihw.gov.au/reports-data/health-welfare-services/children-youth" target="_blank">Australian Institute of Health and Welfare (AIHW) - Gender Attendance Breakdown</a>.</li>
+            <li><strong>Idiom 6 (Average Attendance Time by State/Territory)</strong>: <a href="https://www.abs.gov.au/statistics/people/education/preschool-education-australia" target="_blank">Australian Bureau of Statistics (ABS) - Geographic Attendance Distribution</a>.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Section 3 (Enrolment vs Attendance in Australia):</strong>
+          <ul>
+            <li><strong>Idiom 7 (Attendance-to-Enrolment Ratio by Community)</strong>: <a href="https://www.abs.gov.au/statistics/people/education/preschool-education-australia" target="_blank">Australian Bureau of Statistics (ABS)</a> & <a href="https://www.education.gov.au/" target="_blank">Department of Education</a>.</li>
+            <li><strong>Idiom 8 (Share of Children by Facility Type (2016 vs 2026))</strong>: <a href="https://www.pc.gov.au/ongoing/report-on-government-services" target="_blank">Productivity Commission - Report on Government Services (RoGS)</a> & <a href="https://www.abs.gov.au/" target="_blank">ABS Child Care Data</a>.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Section 4 (Australia vs Malaysia Comparison):</strong>
+          <ul>
+            <li><strong>Idiom 9 (Enrolment Rates by Urban vs Rural)</strong>: <a href="https://www.abs.gov.au/" target="_blank">Australian Bureau of Statistics (ABS)</a> & <a href="https://www.moe.gov.my/" target="_blank">Ministry of Education Malaysia (KPM)</a>.</li>
+            <li><strong>Idiom 10 (Enrolment Portions by Gender)</strong>: <a href="https://www.abs.gov.au/" target="_blank">Australian Bureau of Statistics (ABS)</a> & <a href="https://open.dosm.gov.my/" target="_blank">Department of Statistics Malaysia (DOSM)</a>.</li>
+            <li><strong>Idiom 11 Enrolment Rates in Malaysia by state</strong>: <a href="https://www.moe.gov.my/" target="_blank">Ministry of Education Malaysia (KPM)</a> & <a href="https://open.dosm.gov.my/" target="_blank">OpenDOSM</a>.</li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Geographic Boundaries (GeoJSON)</h3>
+      <ul>
+        <li>Australian State Boundaries: <a href="https://cdn.jsdelivr.net/gh/rowanhogan/australian-states@master/states.geojson" target="_blank">Rowan Hogan's Australian States Repository</a>.</li>
+        <li>Malaysian State & Federal Territory Boundaries: <a href="https://raw.githubusercontent.com/mptwaktusolat/jakim.geojson/master/malaysia.state.geojson" target="_blank">JAKIM Malaysia State GeoJSON Repository</a>.</li>
+      </ul>
+    </div>
+  </section>
   <script>
     // Section 1 Controller
     const slider1 = document.getElementById('s1-slider');
