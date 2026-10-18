@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 240,
-  "height": 220,
+  "width": 260,
+  "height": 140,
   "data": {
     "url": "data/section4_idiom10.csv"
   },
@@ -12,31 +12,39 @@
     }
   ],
   "transform": [
-    {"filter": "datum.year == section4_year"}
+    {"filter": "datum.year == section4_year"},
+    {
+      "window": [{"op": "row_number", "as": "idx"}],
+      "groupby": ["year", "country"]
+    },
+    {"calculate": "datum.idx - 1", "as": "clean_id"},
+    {"calculate": "datum.country == 'Malaysia' ? (datum.clean_id % 10) + 10 : datum.clean_id % 10", "as": "grid_x"},
+    {"calculate": "floor(datum.clean_id / 10)", "as": "grid_y"}
   ],
   "mark": {
-    "type": "rect",
+    "type": "square",
+    "size": 115,
     "stroke": "#ffffff",
-    "strokeWidth": 0.5
+    "strokeWidth": 0.8
   },
   "encoding": {
     "x": {
-      "field": "x",
+      "field": "grid_x",
       "type": "quantitative",
-      "scale": {"domain": [0, 19]},
+      "scale": {"domain": [-0.5, 19.5]},
       "axis": null,
       "title": null
     },
     "y": {
-      "field": "y",
+      "field": "grid_y",
       "type": "quantitative",
-      "scale": {"domain": [0, 9]},
+      "scale": {"domain": [-0.5, 9.5]},
       "sort": "descending",
       "axis": null,
       "title": null
     },
     "color": {
-      "field": "color_group",
+      "field": "group",
       "type": "nominal",
       "scale": {
         "domain": ["AUS_Female", "AUS_Male", "MYS_Female", "MYS_Male"],
