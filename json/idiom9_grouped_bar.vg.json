@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section4_idiom9.csv"
+  },
+  "params": [
+    {
+      "name": "section4_year",
+      "value": 2022
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year == section4_year"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "country",
+      "type": "nominal",
+      "title": "Country",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "enrolment_rate",
+      "type": "quantitative",
+      "scale": {"domain": [0, 100]},
+      "title": "Enrolment Rate (%)",
+      "stack": false
+    },
+    "xOffset": {
+      "field": "location",
+      "type": "nominal",
+      "sort": ["Urban", "Rural"]
+    },
+    "color": {
+      "field": "location",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Urban", "Rural"],
+        "range": ["#bf00ff", "#00ffbf"]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "title": "Location"
+      }
+    },
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "location", "type": "nominal", "title": "Location"},
+      {"field": "enrolment_rate", "type": "quantitative", "title": "Enrolment Rate (%)", "format": ".1f"},
+      {"field": "year", "type": "quantitative", "title": "Year"}
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "projection": {
+    "type": "mercator",
+    "center": [109.5, 4.2],
+    "scale": 1500
+  },
+  "params": [
+    {
+      "name": "section4_year",
+      "value": 2022
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/CivilServiceMalaysia/malaysia-geojson/main/malaysia.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f0f0f0",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/section4_idiom11.csv"
+      },
+      "transform": [
+        {"filter": "datum.year == section4_year"},
+        {
+          "lookup": "state_name",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/CivilServiceMalaysia/malaysia-geojson/main/malaysia.geojson",
+              "format": {"type": "json", "property": "features"}
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "enrolment_rate",
+          "type": "quantitative",
+          "scale": {
+            "domain": [75, 100],
+            "scheme": ["#bf80ff", "#400080"]
+          },
+          "legend": {
+            "title": "Enrolment Rate (%)",
+            "gradientLength": 160,
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {"field": "state_name", "type": "nominal", "title": "State/Territory"},
+          {"field": "enrolment_rate", "type": "quantitative", "title": "Avg Enrolment Rate (%)", "format": ".1f"},
+          {"field": "year", "type": "quantitative", "title": "Year"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"state_name": "W.P. Kuala Lumpur", "longitude": 101.6869, "latitude": 3.1390},
+          {"state_name": "W.P. Putrajaya", "longitude": 101.6964, "latitude": 2.9264},
+          {"state_name": "W.P. Labuan", "longitude": 115.2308, "latitude": 5.2831}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 8,
+        "fontWeight": "bold",
+        "align": "left",
+        "dx": 6,
+        "dy": 2,
+        "color": "#333"
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "text": {"field": "state_name"}
+      }
+    }
+  ],
+  "config": {}
+}

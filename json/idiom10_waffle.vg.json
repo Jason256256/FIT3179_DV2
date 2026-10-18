@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 240,
+  "height": 220,
+  "data": {
+    "url": "data/section4_idiom10.csv"
+  },
+  "params": [
+    {
+      "name": "section4_year",
+      "value": 2022
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year == section4_year"}
+  ],
+  "mark": {
+    "type": "rect",
+    "stroke": "#ffffff",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "x": {
+      "field": "x",
+      "type": "quantitative",
+      "scale": {"domain": [0, 19]},
+      "axis": null,
+      "title": null
+    },
+    "y": {
+      "field": "y",
+      "type": "quantitative",
+      "scale": {"domain": [0, 9]},
+      "sort": "descending",
+      "axis": null,
+      "title": null
+    },
+    "color": {
+      "field": "color_group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["AUS_Female", "AUS_Male", "MYS_Female", "MYS_Male"],
+        "range": ["#ff00bf", "#00bfff", "#ff0040", "#0040ff"]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "columns": 2,
+        "title": "Gender & Country"
+      }
+    },
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "gender", "type": "nominal", "title": "Gender"},
+      {"field": "year", "type": "quantitative", "title": "Year"}
+    ]
+  }
+}

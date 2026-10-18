@@ -154,6 +154,42 @@
     </div>
   </section>
 
+  <!-- SECTION 4 -->
+  <section class="dashboard-section" id="section-4">
+    <div class="narrative-box">
+      <h2>Section 4: Australia vs Malaysia Comparison</h2>
+      <p>This section compares trends in enrolment rates between Australia and Malaysia, by community type (urban or rural), gender (male or female) and states.</p>
+    </div>
+
+    <div class="charts-row">
+      <div class="insights-box">
+        <div class="chart-title">Key Insights</div>
+        <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
+          <li><strong>Urban Advantage:</strong> Both Australia and Malaysia maintain higher enrolment rates in urban centers compared to rural communities.</li>
+          <li><strong>Gender Balance:</strong> Enrolment proportions across genders remain relatively balanced near 50% for both nations.</li>
+          <li><strong>Regional Variation:</strong> Capital regions and metropolitan states consistently achieve the highest participation rates.</li>
+        </ul>
+        <div class="control-group">
+          <label for="s4-slider"><strong>Select Year: <span id="s4-year-val">2022</span></strong></label><br>
+          <input type="range" id="s4-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
+        </div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">9. Enrolment rates by Urban vs Rural</div>
+        <div id="vis9"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">10. Enrolment portions by Gender</div>
+        <div class="chart-subtitle">1 cell = 1% of total enrolment within one country</div>
+        <div id="vis10"></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-title">11. Enrolment Rates in Malaysia by state</div>
+        <div id="vis11"></div>
+      </div>
+    </div>
+  </section>
+
   <script>
     // Section 1 Controller
     const slider1 = document.getElementById('s1-slider');
@@ -211,6 +247,29 @@
     }
     slider3.addEventListener('input', (e) => renderSection3(e.target.value));
     renderSection3(2022);
+
+    // Section 4 Controller
+    const slider4 = document.getElementById('s4-slider');
+    const yearVal4 = document.getElementById('s4-year-val');
+
+    function renderSection4(year) {
+      yearVal4.textContent = year;
+      const selectedYear = parseInt(year);
+
+      vegaEmbed('#vis9', 'json/idiom9_grouped_bar.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section4_year', selectedYear).run();
+      }).catch(console.error);
+
+      vegaEmbed('#vis10', 'json/idiom10_waffle.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section4_year', selectedYear).run();
+      }).catch(console.error);
+
+      vegaEmbed('#vis11', 'json/idiom11_map.vg.json', {"actions": false}).then((res) => {
+        res.view.signal('section4_year', selectedYear).run();
+      }).catch(console.error);
+    }
+    slider4.addEventListener('input', (e) => renderSection4(e.target.value));
+    renderSection4(2022);
   </script>
 </body>
 
