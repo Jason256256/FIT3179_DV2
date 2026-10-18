@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 230,
   "height": 220,
   "projection": {
     "type": "mercator",
@@ -100,9 +101,9 @@
           },
           "legend": {
             "title": "Avg Time (Hours)",
-            "gradientLength": 180,
             "orient": "bottom",
-            "direction": "horizontal"
+            "direction": "horizontal",
+            "columns": 4
           }
         },
         "tooltip": [
