@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 240,
+  "width": 200,
   "height": 220,
   "data": {
     "url": "data/section3_idiom7.csv"
@@ -84,9 +84,9 @@
       "data": {"values": [{}]},
       "mark": {
         "type": "rect",
-        "x": 48,
+        "x": 28,
         "y": 140,
-        "x2": 205,
+        "x2": 185,
         "y2": 194,
         "fill": "#ffffff",
         "stroke": "#b0c4de",
@@ -107,7 +107,7 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "x": 53,
+        "x": 33,
         "y": 144,
         "fontSize": 10,
         "color": "#222222",

@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 240,
   "height": 220,
   "data": {
     "url": "data/section2_idiom4.csv"
@@ -65,7 +64,7 @@
         "x": 4,
         "y": 0,
         "x2": 155,
-        "y2": 42,
+        "y2": 30,
         "fill": "#ffffff",
         "stroke": "#b0c4de",
         "strokeWidth": 1,
@@ -77,7 +76,7 @@
       "data": {
         "values": [
           {
-            "annotation": "Attendance time is consistently\nhigher in more urban areas\ncompared to more rural areas."
+            "annotation": "Attendance time is consistently\nhigher in more urban areas."
           }
         ]
       },

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 260,
+  "width": 230,
   "height": 140,
   "data": {
     "url": "data/section4_idiom10.csv"

@@ -34,9 +34,10 @@
       .chart-box { flex: 2; min-width: 220px; }
       .insights-box { flex: 1; min-width: 200px; background: #fdfdfd; padding: 15px; border-left: 3px solid #4080ff; border-radius: 4px; }
       
-      /* Row split layout: 3:3:1 ratio for Section 3 */
+      /* Row split layout: 2:4:1 ratio for Section 3 */
       .charts-row-s3 { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 15px; }
-      .chart-box-s3 { flex: 3; min-width: 260px; }
+      .chart-box-s3-ratio7 { flex: 2; min-width: 220px; }
+      .chart-box-s3-ratio8 { flex: 4; min-width: 320px; }
       .insights-box-s3 { flex: 1; min-width: 200px; background: #fdfdfd; padding: 15px; border-left: 3px solid #4080ff; border-radius: 4px; }
 
       .chart-title { font-size: 1.1em; font-weight: 700; margin-bottom: 8px; color: #333; }
@@ -130,7 +131,7 @@
     </div>
 
     <div class="charts-row-s3">
-      <div class="chart-box-s3">
+      <div class="chart-box-s3-ratio7">
         <div class="chart-title">7. Attendance-to-Enrolment Ratio by Community</div>
         <div id="vis7"></div>
         <div class="control-group" style="margin-top: 15px;">
@@ -138,7 +139,7 @@
           <input type="range" id="s3-slider" min="2016" max="2026" step="2" value="2022" style="width: 100%; margin-top: 8px;">
         </div>
       </div>
-      <div class="chart-box-s3">
+      <div class="chart-box-s3-ratio8">
         <div class="chart-title">8. Share of Children by Facility Type (2016 vs 2026)</div>
         <div id="vis8"></div>
       </div>
@@ -167,7 +168,7 @@
         <ul style="font-size: 0.9em; color: #444; padding-left: 18px; margin: 10px 0 15px 0; line-height: 1.5;">
           <li><strong>Urban Advantage:</strong> Both Australia and Malaysia maintain higher enrolment rates in urban centers compared to rural communities.</li>
           <li><strong>Gender Balance:</strong> Enrolment proportions across genders remain relatively balanced near 50% for both nations.</li>
-          <li><strong>Regional Variation:</strong> Capital regions and metropolitan states consistently achieve the highest participation rates.</li>
+          <li><strong>Regional Variation:</strong> Capital territories and metropolitan regions (such as Kuala Lumpur and Putrajaya) consistently achieve the highest participation rates.</li>
         </ul>
         <div class="control-group">
           <label for="s4-slider"><strong>Select Year: <span id="s4-year-val">2022</span></strong></label><br>

@@ -1,0 +1,25 @@
+year,category,country,gender,cells_count,color_group
+2016,Australia Female Enrolment,Australia,Female,51,AUS_Female
+2016,Australia Male Enrolment,Australia,Male,49,AUS_Male
+2016,Malaysia Female Enrolment,Malaysia,Female,50,MYS_Female
+2016,Malaysia Male Enrolment,Malaysia,Male,50,MYS_Male
+2018,Australia Female Enrolment,Australia,Female,51,AUS_Female
+2018,Australia Male Enrolment,Australia,Male,49,AUS_Male
+2018,Malaysia Female Enrolment,Malaysia,Female,50,MYS_Female
+2018,Malaysia Male Enrolment,Malaysia,Male,50,MYS_Male
+2020,Australia Female Enrolment,Australia,Female,52,AUS_Female
+2020,Australia Male Enrolment,Australia,Male,48,AUS_Male
+2020,Malaysia Female Enrolment,Malaysia,Female,51,MYS_Female
+2020,Malaysia Male Enrolment,Malaysia,Male,49,MYS_Male
+2022,Australia Female Enrolment,Australia,Female,51,AUS_Female
+2022,Australia Male Enrolment,Australia,Male,49,AUS_Male
+2022,Malaysia Female Enrolment,Malaysia,Female,50,MYS_Female
+2022,Malaysia Male Enrolment,Malaysia,Male,50,MYS_Male
+2024,Australia Female Enrolment,Australia,Female,52,AUS_Female
+2024,Australia Male Enrolment,Australia,Male,48,AUS_Male
+2024,Malaysia Female Enrolment,Malaysia,Female,51,MYS_Female
+2024,Malaysia Male Enrolment,Malaysia,Male,49,MYS_Male
+2026,Australia Female Enrolment,Australia,Female,52,AUS_Female
+2026,Australia Male Enrolment,Australia,Male,48,AUS_Male
+2026,Malaysia Female Enrolment,Malaysia,Female,51,MYS_Female
+2026,Malaysia Male Enrolment,Malaysia,Male,49,MYS_Male

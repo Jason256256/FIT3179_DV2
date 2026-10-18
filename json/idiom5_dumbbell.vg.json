@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 240,
   "height": 220,
   "data": {
     "url": "data/section2_idiom5.csv"
@@ -86,7 +85,7 @@
         "type": "rect",
         "x": 60,
         "y": 172,
-        "x2": 230,
+        "x2": 180,
         "y2": 214,
         "fill": "#ffffff",
         "stroke": "#b0c4de",
@@ -99,7 +98,7 @@
       "data": {
         "values": [
           {
-            "annotation": "Attendance time is also consistently,\nalbeit slightly higher in females\nthan males."
+            "annotation": "Attendance time is also \n slightly higher in females\nthan males."
           }
         ]
       },
